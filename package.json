@@ -2,7 +2,7 @@
   "name": "populr2-database",
   "version": "2.0.0",
   "description": "Common database model/controllres for Populr API v2",
-  "main": "dist/connection.js",
+  "main": "dist/index.js",
   "scripts": {
     "postinstall": "npm run build",
     "build": "babel src -d dist"

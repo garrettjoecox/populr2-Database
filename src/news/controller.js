@@ -1,26 +1,34 @@
 
-import News from './model';
+import Model from './model';
 
-export function bulkCreate(array) {
-  return News.bulkCreate(array)
+function bulkCreate(array) {
+  return Model.bulkCreate(array)
     .then(() => array);
 }
 
-export function bulkUpdate(array) {
-  return News.bulkCreate(array, {updateOnDuplicate: true})
+function bulkUpdate(array) {
+  return Model.bulkCreate(array, {updateOnDuplicate: true})
     .then(() => array);
 }
 
-export function getAll() {
-  return News.findAll()
+function getAll() {
+  return Model.findAll()
     .then(results => results.map(result => result.get()));
 }
 
-export function getMax() {
+function getMax() {
   var promiseArray = [];
 
-  promiseArray.push(News.max('count'));
-  promiseArray.push(News.max('countDelta'));
+  promiseArray.push(Model.max('count'));
+  promiseArray.push(Model.max('countDelta'));
 
   return Promise.all(promiseArray);
 }
+
+export let News = {
+  Model,
+  bulkCreate,
+  bulkUpdate,
+  getAll,
+  getMax
+};

@@ -1,26 +1,34 @@
 
-import Twitter from './model';
+import Model from './model';
 
-export function bulkCreate(array) {
-  return Twitter.bulkCreate(array)
+function bulkCreate(array) {
+  return Model.bulkCreate(array)
     .then(() => array);
 }
 
-export function bulkUpdate(array) {
-  return Twitter.bulkCreate(array, {updateOnDuplicate: true})
+function bulkUpdate(array) {
+  return Model.bulkCreate(array, {updateOnDuplicate: true})
     .then(() => array);
 }
 
-export function getAll() {
-  return Twitter.findAll()
+function getAll() {
+  return Model.findAll()
     .then(results => results.map(result => result.get()));
 }
 
-export function getMax() {
+function getMax() {
   var promiseArray = [];
 
-  promiseArray.push(Twitter.max('followers'));
-  promiseArray.push(Twitter.max('followersDelta'));
+  promiseArray.push(Model.max('followers'));
+  promiseArray.push(Model.max('followersDelta'));
 
   return Promise.all(promiseArray);
 }
+
+export let Twitter = {
+  Model,
+  bulkCreate,
+  bulkUpdate,
+  getAll,
+  getMax
+};

@@ -1,17 +1,24 @@
 
-import Context from './model';
+import Model from './model';
 
-export function bulkCreate(array) {
-  return Context.bulkCreate(array)
+function bulkCreate(array) {
+  return Model.bulkCreate(array)
     .then(() => array);
 }
 
-export function bulkUpdate(array) {
-  return Context.bulkCreate(array, {updateOnDuplicate: true})
+function bulkUpdate(array) {
+  return Model.bulkCreate(array, {updateOnDuplicate: true})
     .then(() => array);
 }
 
-export function getAll() {
-  return Context.findAll()
+function getAll() {
+  return Model.findAll()
     .then(results => results.map(result => result.get()));
 }
+
+export let Context = {
+  Model,
+  bulkCreate,
+  bulkUpdate,
+  getAll
+};
