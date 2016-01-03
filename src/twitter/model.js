@@ -6,11 +6,11 @@ export default db.define('twitter', {
   fullName: { type: Sequelize.STRING(190), primaryKey: true },
   handle: { type: Sequelize.STRING },
   avi: { type: Sequelize.STRING },
-  followers: { type: Sequelize.INTEGER },
+  followers: { type: Sequelize.INTEGER, defaultValue: 0 },
   followersPeriodic: { type: Sequelize.TEXT('long') },
-  followersDelta: { type: Sequelize.INTEGER },
+  followersDelta: { type: Sequelize.INTEGER, defaultValue: 0 },
   followersDeltaPeriodic: { type: Sequelize.TEXT('long') },
-  score: { type: Sequelize.INTEGER },
-  scoreDelta: { type: Sequelize.INTEGER },
+  score: { type: Sequelize.INTEGER, defaultValue: 0 },
+  scoreDelta: { type: Sequelize.INTEGER, defaultValue: 0 },
   tweets: { type: Sequelize.TEXT('long') }
 }, { freezeTableName: true });
