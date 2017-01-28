@@ -2,11 +2,13 @@
 module.exports = (sequelize, DataTypes) => sequelize.define('news', {
 
   queries: DataTypes.STRING,
-  headlines: DataTypes.INTEGER,
-  headlinesDelta: DataTypes.INTEGER,
+  hits: DataTypes.INTEGER,
+  hitsDelta: DataTypes.INTEGER,
 
 }, {
 
   freezeTableName: true,
+  classMethods: {
+  },
 
 });

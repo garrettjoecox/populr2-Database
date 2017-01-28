@@ -1,7 +1,7 @@
 
-module.exports = (sequelize, DataTypes) => sequelize.define('wiki', {
+module.exports = (sequelize, DataTypes) => sequelize.define('info', {
 
-  wikiId: DataTypes.STRING,
+  wikiUrl: DataTypes.STRING,
   bio: DataTypes.TEXT,
   birthdate: DataTypes.DATE,
   occupation: DataTypes.STRING,
@@ -10,5 +10,7 @@ module.exports = (sequelize, DataTypes) => sequelize.define('wiki', {
 }, {
 
   freezeTableName: true,
+  classMethods: {
+  },
 
 });
