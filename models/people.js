@@ -2,6 +2,8 @@
 module.exports = (sequelize, DataTypes) => sequelize.define('people', {
 
   displayName: DataTypes.STRING,
+  position: DataTypes.INTEGER,
+  positionDelta: DataTypes.INTEGER,
 
 }, {
 
